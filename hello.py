@@ -2,11 +2,17 @@
 #!/usr/bin/python2.7 -u
 #!/usr/bin/python
 # -*- coding: cp1251 -*-
-def main():
+
+import typer
+
+def main(
+    name: str = typer.Argument(..., help="Твое имя")
+):
     """
-    Говорит "Hello appsec world"
+    Говорит "Hello appsec world from @name"
     """
-    print("Hello appsec world")
+    print(f"Hello appsec world from @{name}")
+
 
 if __name__ == "__main__":
-    main()
+    typer.run(main)
