@@ -1,18 +1,18 @@
-#!/usr/bin/env python3
-#!/usr/bin/python2.7 -u
-#!/usr/bin/python
-# -*- coding: cp1251 -*-
 
 import typer
 
 def main(
-    name: str = typer.Argument(..., help="Твое имя")
+    name: str,
+    lastname: str = typer.Option("", help="Фамилия пользователя."),
+    formal: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
 ):
     """
-    Говорит "Hello appsec world from @name"
+    Говорит "Привет" пользователю, опционально используя фамилию и формальный стиль.
     """
-    print(f"Hello appsec world from @{name}")
-
+    if formal:
+        print(f"Добрый день, {name} {lastname}!")
+    else:
+        print(f"Привет, {name}!")
 
 if __name__ == "__main__":
     typer.run(main)
