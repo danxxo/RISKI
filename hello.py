@@ -2,19 +2,19 @@
 import typer
 
 def main(
-    name: str,
+    username: str,
     lastname: str = typer.Option("", help="Фамилия пользователя."),
-    formal: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
+    formalOption: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
 ):
     """
     Говорит "Здрасьте" пользователю, опционально используя фамилию и формальный стиль.
     """
 
     # Использование флага formal
-    if formal:
-        print(f"Добрый день, {name} {lastname}!")
+    if formalOption:
+        print(f"Добрый день, {username} {lastname}!")
     else:
-        print(f"Привет, {name}!")
+        print(f"Привет, {username}!")
 
 # Основная функция
 if __name__ == "__main__":
